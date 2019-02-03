@@ -7,5 +7,5 @@ $ tar -zxvf ns-allinone-2.34.tar.gz
 ```
 
 ### Usage
-- `srpt&las$ddl` contains the codes for SRPT (Shortest Remaining Processing Time first), LAS (Least Attained Service), and Deadline-Aware Scheduling
-- `???` contains the codes for Fair Queuing
+- `srpt_las_ddl` contains the codes for SRPT (Shortest Remaining Processing Time first), LAS (Least Attained Service), and Deadline-Aware Scheduling
+- `fairqueuing` contains the codes for Fair Queuing
