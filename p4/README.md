@@ -1,7 +1,7 @@
 ## QCluter in P4 language
 
 ### Requirements
-- This codes is written for Tofino architection. Please compile and run the codes using Tofinobm or a Tofino ASIC.
+- This codes is written for [Tofino Switch](https://barefootnetworks.com/products/brief-tofino/). Please compile and run the codes using Tofino model or a Tofino ASIC.
 - The control plane is written in Python 2 using PD-API. To run it, the relevant components should be compiled with `--with-thrift`.
 
 ### Usage

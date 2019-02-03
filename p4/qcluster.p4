@@ -14,9 +14,6 @@
 #define CM_LEN 65536
 #define CM_HASH_LEN 16
 #define INTERVAL 500000
-//#define BF_LEN 65536
-//#define BF_HASH_LEN 16
-//#define ECN_THRESHOLD 10
 
 header_type user_metadata_t {
     fields {
@@ -30,7 +27,6 @@ header_type user_metadata_t {
         queue_id: 3;
         enq_qdepth_sum: 20;
         qdepth_i: 32 (signed);
-        //temp: 20 ;
         enq_qdepth: 19;
         is_small_packet : 1;
     }
@@ -49,7 +45,6 @@ action hop(ttl, egress_port) {
 }
 action hop_ipv4(egress_port) {
     hop(ipv4.ttl, egress_port);
-    //modify_field(ig_intr_md_for_tm.ucast_egress_port, egress_port);
     default_queue();
 }
 table ipv4_routing {
@@ -84,7 +79,6 @@ table shift_left_3_bit_table {
 action getTime() {
     modify_field(md.tstamp, ig_intr_md_from_parser_aux.ingress_global_tstamp);
 }
-//@pragma stage 0
 table getTimeTable {
     actions {getTime;}
     size: 1;
@@ -129,7 +123,6 @@ blackbox stateful_alu cm_alu_1 {
 action check_cm_1() {
     cm_alu_1.execute_stateful_alu_from_hash(cm_hash_1);
 }
-//@pragma stage 1
 table cm_1 {
     actions { check_cm_1; }
     size : 1;
@@ -160,7 +153,6 @@ blackbox stateful_alu cm_alu_2 {
 action check_cm_2() {
     cm_alu_2.execute_stateful_alu_from_hash(cm_hash_2);
 }
-//@pragma stage 1
 table cm_2 {
     actions { check_cm_2; }
     size : 1;
@@ -229,7 +221,6 @@ counter queueIdTable_stats {
     type : packets_and_bytes;
     direct : queueIdTable;
 }
-//@pragma stage 4
 table queueIdTable {
     reads { 
         ig_intr_md_for_tm.ucast_egress_port: exact;
@@ -353,7 +344,6 @@ action nop() {
 table mark_ecn_table {
     reads {
         md.enq_qdepth_sum: range;
-        //eg_intr_md.enq_qdepth: range;
     }
     actions {mark_ecn;}
     default_action: nop();
@@ -390,9 +380,9 @@ control ingress {
     if (valid(ipv4)) {
         apply(ipv4_routing);
         apply(packet_size_table);
+        apply(getTimeTable);
         if (md.is_small_packet == 0) {
             apply(shift_left_3_bit_table);
-            apply(getTimeTable);
             apply(cm_1);
             apply(cm_2);
             apply(cm_3);
