@@ -1,4 +1,4 @@
-## QCluter in P4 language
+## QCluster in P4 language
 
 ### Requirements
 - This codes is written for [Tofino Switch](https://barefootnetworks.com/products/brief-tofino/). Please compile and run the codes using Tofino model or a Tofino ASIC.
