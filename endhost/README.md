@@ -1,9 +1,9 @@
 ## Description
 
-The kernel module of QCluster.
+The kernel module of QCluster endhost version.
 
 ## Compiling
- The QCluster endhost module is verified in the Linux kernel 4.13.0-36-generic. To compile it:  
+ The QCluster endhost module is verified in the Linux kernel Version 4.13.0-36-generic. To compile it:  
 
 <pre><code>$ cd endhost<br/>
 $ make</code></pre>
