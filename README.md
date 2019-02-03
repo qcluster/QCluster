@@ -7,7 +7,7 @@ Flow Scheduling is crucial in data centers, as it directly influences user exper
 
 ## About
 
-This repository contains of the following three parts:
+This repository consists of the following three parts:
 - `P4`: The implementation of QCluster for LAS (least attained service first) in P4 language.
 - `endhost`: The implementation of QCluster for LAS in linux kernel.
 - `ns2`: The simulation codes of QCluster for all the four tasks in ns-2.
