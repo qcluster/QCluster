@@ -188,8 +188,6 @@ static NF_CALLBACK(qcluster_process_packet, skb) {
             } else {  
                 // update queue table based on delta and priority, ideally
                 spin_lock_irqsave(&(qcluster_queue_info[priority].lock), flags);
-                //qcluster_queue_info[priority].bytes_cnt += delta;
-                //qcluster_queue_info[priority].flow_cnt += new_flow;
                 int div_pkt = 0;
                 if (payload_len > 0) div_pkt += 1;
                 if (payload_len > 1500) div_pkt += (payload_len - 1) / 1500;
@@ -246,13 +244,8 @@ static int qcluster_netfilter_exit(void) {
 
 static int pias_set_operation(const char *val, struct kernel_param *kp)
 {
-    //For debug
-    //printk(KERN_INFO "PIAS: param_table_operation is set\n");
-    
     if (strncmp(val, "print", 5) == 0)
     {
-        //printk(KERN_INFO "PIAS: print flow table\n");
-        //PIAS_Print_Table(&ft);
         print_priority();
     }
     else
