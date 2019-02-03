@@ -22,6 +22,6 @@ To remove it:
 ## Usage
 QCluster endhost module implements an interface to print the thresholds.
 
-<pre><code>$ echo -n print > /sys/module/pias/parameters/param_table_operation<br/>
+<pre><code>$ echo -n print > /sys/module/qcluster/parameters/param_table_operation<br/>
 $ dmesg|tail<br/>
 </code></pre>
