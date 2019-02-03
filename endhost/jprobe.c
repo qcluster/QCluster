@@ -5,7 +5,6 @@
 
 #include "jprobe.h"
 #include "flow.h"
-//#include "params.h"
 
 /* Flow Table */
 extern struct PIAS_Flow_Table ft;
@@ -18,7 +17,6 @@ int PIAS_IDLE_TIME = 500;
 /* Hook inserted to be called before each socket call.
  * Note: arguments must match tcp_sendmsg()! */
 static int jtcp_sendmsg(struct sock *sk, struct msghdr *msg, size_t size)
-//static int jtcp_sendmsg(struct kiocb *iocb, struct sock *sk, struct msghdr *msg, size_t size)
 {
     struct PIAS_Flow f;	//PIAS flow structure
     struct PIAS_Flow *ptr = NULL;	//pointer to PIAS flow structure
