@@ -7,9 +7,19 @@ Flow Scheduling is crucial in data centers, as it directly influences user exper
 
 ## About
 
-This repository consists of the following three parts:
-- `P4`: The implementation of QCluster for LAS (least attained service first) in P4 language.
-- `endhost`: The implementation of QCluster for LAS in linux kernel.
-- `ns2`: The simulation codes of QCluster for all the four tasks in ns-2.
-
+This repository consists of three parts.
 Please refer to the readme in each folder for more details about how to use the codes.
+
+### Implementation in P4 language
+
+We implement our QCluster for LAS (least attained service first) in P4 language, and build a testbed with a Tofino switch.
+The `p4` folder contains the p4 code and the control plane code for it.
+
+### Implementation on end-hosts
+
+We implement our QCluster for LAS as a linux kernel module. See files in `endhost` about how to compile the codes and how to use it.
+
+### Simulation on ns-2
+
+We also conduct large-scale simulations on ns-2 for all the aforementioned four tasks (SRPT, LAS, Fair Queuing, and Deadline-Aware Scheduling). The `ns2` folder contains our implementation of QCluster and the scripts we used in our experiments.
+We implement our QCluster for LAS as a linux kernel module. See files in `endhost` about how to compile the codes and how to use it.
