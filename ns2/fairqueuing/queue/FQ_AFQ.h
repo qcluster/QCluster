@@ -44,6 +44,7 @@ class FQ_AFQ : public Queue {
 
 			//Init queues
 			q_ = new PacketQueue*[MAX_QUEUE_NUM];
+			R = 0;
 			for(int i = 0 ; i < MAX_QUEUE_NUM ; i++)
 			{
 				q_[i] = new PacketQueue;
@@ -68,6 +69,7 @@ class FQ_AFQ : public Queue {
 		int thresh_;			// single ECN marking threshold
 		int queue_num_;			// number of CoS queues. No more than MAX_QUEUE_NUM
 		int marking_scheme_;	// Disable ECN (0), Per-queue ECN (1) and Per-port ECN (2)
+		int R;
     
         unordered_map<int, int> message_id;
         unordered_map<int, int> flow_count;

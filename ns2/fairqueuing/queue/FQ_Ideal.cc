@@ -46,7 +46,7 @@ void FQ_Ideal::enque(Packet* p)
 	
 	
     //Enqueue ECN marking: Per-queue or Per-port
-    if((marking_scheme_==PER_QUEUE_ECN && q_[prio]->byteLength()>thresh_*mean_pktsize_)||
+    if((marking_scheme_==PER_QUEUE_ECN && q_[m_id]->byteLength()>thresh_*mean_pktsize_)||
     (marking_scheme_==PER_PORT_ECN && TotalByteLength()>thresh_*mean_pktsize_))
     {
         if (hf->ect()) //If this packet is ECN-capable
