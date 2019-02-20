@@ -118,7 +118,7 @@ ENQUE:
     }
 }
 
-Packet* Priority::deque()
+Packet* FQ_QC::deque()
 {
     if(TotalByteLength()>0)
 	{
