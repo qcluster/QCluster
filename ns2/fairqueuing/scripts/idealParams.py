@@ -43,5 +43,5 @@ ns_path = os.environ['HOME'] +\
 sim_script = 'spine_empirical.tcl'
 
 workloadName = ['dctcp', 'vl2']
-flow_cdf = ['CDF_DCTCP.tcl', 'CDF_vl2.tcl']
+flow_cdf = ['CDF_dctcp.tcl', 'CDF_vl2.tcl']
 meanFlowSize = [1138*1460, 5117*1460]
