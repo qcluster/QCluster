@@ -15,7 +15,7 @@ Copy files in tcp folder to ```ns-allinone-2.34/ns-2.34/tcp/```.
 
 Copy files in queue folder to ```ns-allinone-2.34/ns-2.34/queue/```.
 
-Add ```queue/priority.o, queue/known.o, queue/unknown.o, queue/appro_unknown.o,``` to ```ns-allinone-2.34/ns-2.34/Makefile```.
+Add ```queue/FQ_AFQ.o, queue/FQ_QC.o, queue/FQ_Ideal.o,``` to ```ns-allinone-2.34/ns-2.34/Makefile```.
  
 Run ```make``` on ```/ns-allinone-2.34/ns-2.34```.
 
