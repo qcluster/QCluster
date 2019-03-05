@@ -22,7 +22,6 @@
 #include "config.h"
 #include <unordered_map>
 #include "cm_sketch.h"
-#include "sl_bf.h"
 
 using namespace std;
 
