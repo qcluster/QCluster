@@ -86,10 +86,6 @@ void Unknown::enque(Packet* p)
 	    info[queue_chose].distinct += 1;
             info[queue_chose].counting += value;
 	   
-/*	    if(info[queue_chose].distinct >= 512){
-		Update_Queue(queue_chose);
-	    }
-*/
 	    if(Scheduler::instance().clock() - last_update > 1){
                 last_update = Scheduler::instance().clock();
                 Update();

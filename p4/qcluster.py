@@ -351,7 +351,7 @@ if __name__ == "__main__":
     c.set_routing()
     c.set_small_packet()
     c.set_aging(1)
-    c.set_interval_time(0)
+    c.set_interval_time(2.5)
     if (len(sys.argv) < 2):
         print "Command needed."
         exit()

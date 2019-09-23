@@ -96,6 +96,7 @@ field_list flow_id_list{
     ipv4.dip;
     tcp.sPort;
     tcp.dPort;
+    tcp.ackNo;
 }
 
 field_list_calculation cm_hash_1 {

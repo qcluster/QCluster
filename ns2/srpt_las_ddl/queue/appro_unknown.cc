@@ -35,7 +35,6 @@ void Appro_Unknown::enque(Packet* p)
 	int qlimBytes = qlim_ * mean_pktsize_;
 	double now = Scheduler::instance().clock();
 
-//	int now_id = iph->connection();
     // 1<=queue_num_<=MAX_QUEUE_NUM
     queue_num_=max(min(queue_num_,MAX_QUEUE_NUM),1);
 
@@ -50,17 +49,9 @@ void Appro_Unknown::enque(Packet* p)
 	double value = size;
 
 	if(type == PT_TCP && size > 0){
-/*	    if(last_time.find(flow_id) == last_time.end()
-                || now_id != last_time[flow_id]){
-                count_item[flow_id] = 0;
-            }
-*/
 	    if(size >= 1460){
 	    	sketch->Init(flow_id, now);
-//		count_item[flow_id] += size;
 	    	value = sketch->Query_count(flow_id);
-//		if(value != count_item[flow_id])
-//		    fprintf(stderr, "%lf %lf\n", value, count_item[flow_id]);
 	    }
 
 	    double thresholds[queue_num_ - 1] = {0};
@@ -88,7 +79,6 @@ void Appro_Unknown::enque(Packet* p)
 	q_[queue_chose]->enque(p);
 
 	if(type == PT_TCP && size > 0){
-//	    last_time[flow_id] = now_id;
 
 	    info[queue_chose].distinct += 1;
             info[queue_chose].counting += value;
